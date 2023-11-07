@@ -1,1 +1,13 @@
-<h1>Alphabetized</h1>
+<nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+  <ul>
+    <li><a><%= link_to "Home", root_path %></a></li>
+    <li class="is-active"><a><%= link_to "Alphabetical", "alphabetized" %></a></li>
+    <li><a><%= link_to "Missing Email", "missing_email" %></a></li>
+  </ul>
+</nav>
+
+<div class="columns">
+  <%= render partial: 'customer',
+             object: @customers,
+             locals: { show_link: false } %>
+</div>

@@ -1,26 +1,26 @@
-<h1>Customers</h1>
-
 <div class="column">
-  <div class="card">
-    <div class="card-content">
-      <p class="title">
-        <% @customers.each do |customer| %>
-          <% if show_link %>
-            <%= link_to customer.full_name, customer %>
-          <% else %>
-            <%= customer.full_name %>
-          <% end %>
-          </p>
-          <% if customer.image.present? %>
-            <div class="card-image">
-              <figure class="image">
+  <h1 class="title">Customers</h1>
+  <% @customers.each do |customer| %>
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <% if customer.image.present? %>
+              <figure class="image is-350x350">
                 <%= image_tag customer.image.variant(resize_to_limit:[500,500]) %>
               </figure>
-            </div>
-          <% else %>
-            <p>No image yet!</p>
-          <%end %>
-        <% end %>
+            <% else %>
+              <p>No image yet! 📷</p>
+            <%end %>
+          </div>
+          <div class="media-content">
+            <p class="title"><%= customer.full_name %></p>
+            <p class="content">Phone: <%= customer.phone_number %></p>
+            <p class="content">Email: <%= customer.email_address %></p>
+            <p class="content">Notes: <%= customer.notes %></p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
